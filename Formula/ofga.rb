@@ -5,47 +5,41 @@
 class Ofga < Formula
   desc "A modern CLI & TUI for OpenFGA."
   homepage "https://github.com/sergiught/openfga-cli"
-  version "0.263.1"
+  version "0.264.0"
   license "MIT"
 
   on_macos do
-    on_intel do
-      url "https://github.com/sergiught/openfga-cli/releases/download/v0.263.1/ofga_Darwin_x86_64.tar.gz"
-      sha256 "080abe73cb54caebea80aad480b56157ea02d63a3053050989d265c2f89f660c"
+    if Hardware::CPU.intel?
+      url "https://github.com/sergiught/openfga-cli/releases/download/v0.264.0/ofga_Darwin_x86_64.tar.gz"
+      sha256 "6fba7bf062801857ff64c4e983dd6e0dffa5eaf7fc90a170c4855675850e0c56"
 
-      def install
+      define_method(:install) do
         bin.install "ofga"
       end
     end
-    on_arm do
-      url "https://github.com/sergiught/openfga-cli/releases/download/v0.263.1/ofga_Darwin_arm64.tar.gz"
-      sha256 "5f1afded45635c15b743d4e79886a42704dbcb248b74196056dc143a9b538a77"
+    if Hardware::CPU.arm?
+      url "https://github.com/sergiught/openfga-cli/releases/download/v0.264.0/ofga_Darwin_arm64.tar.gz"
+      sha256 "ad14971d1d29a44d58848ee108c7d5e9a8ea139060df0b155b2084d81a11e234"
 
-      def install
+      define_method(:install) do
         bin.install "ofga"
       end
     end
   end
 
   on_linux do
-    on_intel do
-      if Hardware::CPU.is_64_bit?
-        url "https://github.com/sergiught/openfga-cli/releases/download/v0.263.1/ofga_Linux_x86_64.tar.gz"
-        sha256 "22d22b957d0693d2099d32950f85953222bc360339dd886c6cae5596c541133d"
-
-        def install
-          bin.install "ofga"
-        end
+    if Hardware::CPU.intel? && Hardware::CPU.is_64_bit?
+      url "https://github.com/sergiught/openfga-cli/releases/download/v0.264.0/ofga_Linux_x86_64.tar.gz"
+      sha256 "c80addd525063d37099a825145e8981a9179bd5729ecd73c0d3d0ad08c98c48a"
+      define_method(:install) do
+        bin.install "ofga"
       end
     end
-    on_arm do
-      if Hardware::CPU.is_64_bit?
-        url "https://github.com/sergiught/openfga-cli/releases/download/v0.263.1/ofga_Linux_arm64.tar.gz"
-        sha256 "7cf2b02368fe0c123ed63d6a0fdfff5890d10cd72f29b2ff967e4643f342353a"
-
-        def install
-          bin.install "ofga"
-        end
+    if Hardware::CPU.arm? && Hardware::CPU.is_64_bit?
+      url "https://github.com/sergiught/openfga-cli/releases/download/v0.264.0/ofga_Linux_arm64.tar.gz"
+      sha256 "ad798d9ae7e3ce7f6c2f2a26cecf2aa94fc3c83ec58145c4737ab6f11c2415d1"
+      define_method(:install) do
+        bin.install "ofga"
       end
     end
   end
