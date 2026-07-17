@@ -5,21 +5,21 @@
 class Ofga < Formula
   desc "A modern CLI & TUI for OpenFGA."
   homepage "https://github.com/sergiught/openfga-cli"
-  version "0.263.0"
+  version "0.263.1"
   license "MIT"
 
   on_macos do
     on_intel do
-      url "https://github.com/sergiught/openfga-cli/releases/download/v0.263.0/ofga_Darwin_x86_64.tar.gz"
-      sha256 "6edcbbd9f2f95ab167d9d81ceeede8b42727fea02a78a2629ab9116ff763af01"
+      url "https://github.com/sergiught/openfga-cli/releases/download/v0.263.1/ofga_Darwin_x86_64.tar.gz"
+      sha256 "080abe73cb54caebea80aad480b56157ea02d63a3053050989d265c2f89f660c"
 
       def install
         bin.install "ofga"
       end
     end
     on_arm do
-      url "https://github.com/sergiught/openfga-cli/releases/download/v0.263.0/ofga_Darwin_arm64.tar.gz"
-      sha256 "41a2f17a291e611722e5ba3457dfafb470f34f25a5efcff05c1d413bd67b6623"
+      url "https://github.com/sergiught/openfga-cli/releases/download/v0.263.1/ofga_Darwin_arm64.tar.gz"
+      sha256 "5f1afded45635c15b743d4e79886a42704dbcb248b74196056dc143a9b538a77"
 
       def install
         bin.install "ofga"
@@ -30,8 +30,8 @@ class Ofga < Formula
   on_linux do
     on_intel do
       if Hardware::CPU.is_64_bit?
-        url "https://github.com/sergiught/openfga-cli/releases/download/v0.263.0/ofga_Linux_x86_64.tar.gz"
-        sha256 "8da796b7ad66c2575316a9fd0a4319c4ac8e95225c8613a46071a65cb37065bb"
+        url "https://github.com/sergiught/openfga-cli/releases/download/v0.263.1/ofga_Linux_x86_64.tar.gz"
+        sha256 "22d22b957d0693d2099d32950f85953222bc360339dd886c6cae5596c541133d"
 
         def install
           bin.install "ofga"
@@ -40,8 +40,8 @@ class Ofga < Formula
     end
     on_arm do
       if Hardware::CPU.is_64_bit?
-        url "https://github.com/sergiught/openfga-cli/releases/download/v0.263.0/ofga_Linux_arm64.tar.gz"
-        sha256 "6ffaf8453fbd12bc22c0237495ee8fe89e0ef2f2944425d679ec18f6ad93ded9"
+        url "https://github.com/sergiught/openfga-cli/releases/download/v0.263.1/ofga_Linux_arm64.tar.gz"
+        sha256 "7cf2b02368fe0c123ed63d6a0fdfff5890d10cd72f29b2ff967e4643f342353a"
 
         def install
           bin.install "ofga"
