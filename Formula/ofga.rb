@@ -5,41 +5,57 @@
 class Ofga < Formula
   desc "A modern CLI & TUI for OpenFGA."
   homepage "https://github.com/sergiught/openfga-cli"
-  version "0.266.0"
+  version "0.267.0"
   license "MIT"
 
   on_macos do
     if Hardware::CPU.intel?
-      url "https://github.com/sergiught/openfga-cli/releases/download/v0.266.0/ofga_Darwin_x86_64.tar.gz"
-      sha256 "88277ecc19b2a6b9a99381c8bf822874a275bca9024fd744d065f0863abe09c5"
+      url "https://github.com/sergiught/openfga-cli/releases/download/v0.267.0/ofga_Darwin_x86_64.tar.gz"
+      sha256 "4e750d01c174fbbab08d068bcab38e5a8c94eb6f70c3e55a8edaece7975550ca"
 
       define_method(:install) do
         bin.install "ofga"
+        bash_completion.install "completions/ofga.bash" => "ofga"
+        zsh_completion.install "completions/ofga.zsh" => "_ofga"
+        fish_completion.install "completions/ofga.fish"
+        man1.install Dir["man/*.1"]
       end
     end
     if Hardware::CPU.arm?
-      url "https://github.com/sergiught/openfga-cli/releases/download/v0.266.0/ofga_Darwin_arm64.tar.gz"
-      sha256 "0c67a6b1de3fc0560f6d2ad1cb11010ba0b6b02865aa639daae34001ca652590"
+      url "https://github.com/sergiught/openfga-cli/releases/download/v0.267.0/ofga_Darwin_arm64.tar.gz"
+      sha256 "7ce2004d4a1b191779d76830fa397f4a28c9f7d50ca925d4e635cd4e253cc8c0"
 
       define_method(:install) do
         bin.install "ofga"
+        bash_completion.install "completions/ofga.bash" => "ofga"
+        zsh_completion.install "completions/ofga.zsh" => "_ofga"
+        fish_completion.install "completions/ofga.fish"
+        man1.install Dir["man/*.1"]
       end
     end
   end
 
   on_linux do
     if Hardware::CPU.intel? && Hardware::CPU.is_64_bit?
-      url "https://github.com/sergiught/openfga-cli/releases/download/v0.266.0/ofga_Linux_x86_64.tar.gz"
-      sha256 "07fea4467a26d88c9d6935ec33bf6ce79f47bbf7026680199fdb9c400b5ab665"
+      url "https://github.com/sergiught/openfga-cli/releases/download/v0.267.0/ofga_Linux_x86_64.tar.gz"
+      sha256 "167f6998b07edcae373893eefcb295e461e6bfaec348e27927d8f755c168fc2f"
       define_method(:install) do
         bin.install "ofga"
+        bash_completion.install "completions/ofga.bash" => "ofga"
+        zsh_completion.install "completions/ofga.zsh" => "_ofga"
+        fish_completion.install "completions/ofga.fish"
+        man1.install Dir["man/*.1"]
       end
     end
     if Hardware::CPU.arm? && Hardware::CPU.is_64_bit?
-      url "https://github.com/sergiught/openfga-cli/releases/download/v0.266.0/ofga_Linux_arm64.tar.gz"
-      sha256 "14ccf2326bf1efd376c99b0581edda72a5089eb8a8ade22a99754817bcab4876"
+      url "https://github.com/sergiught/openfga-cli/releases/download/v0.267.0/ofga_Linux_arm64.tar.gz"
+      sha256 "ecaa83cf1aac263cffdcc5a244171cf3e4e71cddcc567aac66ba653713834b2c"
       define_method(:install) do
         bin.install "ofga"
+        bash_completion.install "completions/ofga.bash" => "ofga"
+        zsh_completion.install "completions/ofga.zsh" => "_ofga"
+        fish_completion.install "completions/ofga.fish"
+        man1.install Dir["man/*.1"]
       end
     end
   end
